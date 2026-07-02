@@ -1,0 +1,60 @@
+﻿:root {
+    --color-bg: #0D0D0D;
+    --color-surface: #1A1A2E;
+    --color-border: #0F3460;
+    --color-accent: #E94560;
+    --color-highlight: #A8D8EA;
+    --color-success: #3FB950;
+    --color-warning: #D29922;
+    --color-text: #C9D1D9;
+    --color-code: #A8D8EA;
+    --font-family: 'Consolas', 'Courier New', Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-highlight);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+a {
+    color: var(--color-highlight);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+main.content {
+    flex: 1;
+    margin-left: 200px;
+    padding: 2rem;
+    max-width: 960px;
+    width: calc(100% - 200px);
+}
+
+code, pre {
+    color: var(--color-code);
+    background-color: rgba(168, 216, 234, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: var(--font-family);
+}

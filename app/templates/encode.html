@@ -1,0 +1,80 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Encode | StegoForge v4{% endblock %}
+{% block page_title %}/encode/single{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 class="card-title">Single Carrier Encode</h2>
+    <form id="encodeForm" onsubmit="handleEncode(event)">
+        <div class="form-group">
+            <label for="image">> SELECT CARRIER IMAGE (.png/.jpg)</label>
+            <input type="file" id="image" name="image" class="form-control" accept="image/png, image/jpeg" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">> PAYLOAD DATA</label>
+            <textarea id="message" name="message" class="form-control" required placeholder="Enter confidential message here..."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">> PRIMARY KEY (PASSPHRASE)</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+
+        <div class="card" style="margin-top: 2rem; background:rgba(0,0,0,0.4)">
+            <h3 class="card-title" style="font-size:1rem; border-color: rgba(255,255,255,0.1)">[+] ADVANCED PARAMS</h3>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="double_encrypt" name="double_encrypt" value="1"> Enable Double Encryption Layer (2x AES-GCM)
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="self_destruct" name="self_destruct" value="1"> Enable Expiry (TTL - 1 hour)
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-danger">[+] INITIALIZE ENCODE</button>
+    </form>
+</div>
+
+<div class="card" id="resultCard" style="display:none; border-color: var(--color-success)">
+    <h2 class="card-title" style="color:var(--color-success)">ENCODE SUCCESS</h2>
+    <p>Payload embedded. Image metadata scrubbed.</p>
+    <a id="downloadLink" class="btn btn-primary" href="#" style="margin-top:1rem" download>[_] DOWNLOAD ARTIFACT</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function handleEncode(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+            const res = await fetch('/api/v1/encode', {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (res.ok) {
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.getElementById('downloadLink');
+                a.href = url;
+                a.download = encoded_artifact_.png;
+                document.getElementById('resultCard').style.display = 'block';
+            } else {
+                const err = await res.text();
+                alert('Encode failed: ' + err);
+            }
+        } catch(e) {
+            console.error(e);
+            alert('Transfer error');
+        }
+    }
+</script>
+{% endblock %}

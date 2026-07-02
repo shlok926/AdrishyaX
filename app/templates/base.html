@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}StegoForge v4{% endblock %}</title>
+    <!-- Base CSS containing CSS variables -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            STEGOFORGE_
+        </div>
+        <ul class="nav-links">
+            <li><a href="/" class="nav-item active">[+] ENCODE</a></li>
+            <li><a href="/decode" class="nav-item">[-] DECODE</a></li>
+            <li><a href="/batch" class="nav-item">[*] BATCH IO</a></li>
+            <li><a href="/keys" class="nav-item">[>] KEYS</a></li>
+            <li><a href="/audit" class="nav-item">[=] AUDIT</a></li>
+        </ul>
+        <div class="user-profile">
+            <span class="user-role">>_ OPR_01</span><br>
+            <a href="/auth/logout" class="logout" style="color: var(--color-accent); font-size:0.8rem;">[LOGOUT]</a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <header>
+            <h1 class="page-title">{% block page_title %}/home{% endblock %}</h1>
+            <p class="subtitle" style="color: var(--color-border); margin-bottom: 2rem;">> StegoForge v4.0.0 Crypto-Layer Active</p>
+        </header>
+
+        {% block content %}
+        
+        <div class="card">
+            <h2 class="card-title">Welcome to StegoForge</h2>
+            <p>Select a module from the sidebar to begin covert operations. All actions are logged.</p>
+        </div>
+
+        {% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
