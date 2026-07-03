@@ -2000,13 +2000,18 @@
                     </div>
                 </div>
                 
-                <!-- System Activity Log to fill vertical space -->
+                <!-- Security Parameters to fill vertical space -->
                 <div class="panel-title" style="margin-top: 24px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                    <span>📡</span> SYSTEM ACTIVITY LOG
+                    <span>🛡️</span> SECURITY PARAMETERS
                 </div>
-                <div id="miniAuditLog" style="margin-top: 15px; padding: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.1); font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-dim); height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
-                    <div style="color: var(--primary);">[SYS] Encryption Module Standby...</div>
-                    <div style="color: var(--primary);">[SYS] Waiting for secure carrier injection.</div>
+                <div style="margin-top: 15px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 8px; font-size: 12px; color: var(--text-dim); display: flex; flex-direction: column; gap: 12px; height: 250px;">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Cipher Mode</span><span style="color: var(--primary);">AES-256-GCM</span></div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Key Derivation</span><span style="color: var(--primary);">PBKDF2-HMAC-SHA256</span></div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Iterations</span><span style="color: var(--primary);">100,000</span></div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Authentication Tag</span><span style="color: var(--primary);">16-byte MAC</span></div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Stego Algorithm</span><span style="color: var(--primary);">LSB Replacement</span></div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Error Correction</span><span style="color: var(--primary);">Reed-Solomon (BCH)</span></div>
+                    <div style="margin-top: auto; text-align: center; color: var(--success); font-weight: bold; padding-top: 10px; letter-spacing: 1px;">SYSTEM SECURE & ARMED</div>
                 </div>
             </div>
         </div>
@@ -3252,16 +3257,6 @@
                 container.appendChild(entry);
                 container.scrollTop = container.scrollHeight;
             }
-            
-            // Output to Mini Audit Log in the right panel
-            const miniLog = document.getElementById('miniAuditLog');
-            if (miniLog) {
-                const miniEntry = document.createElement('div');
-                const miniColor = type === 'error' ? 'var(--error)' : (type === 'success' ? 'var(--success)' : (type === 'warning' ? 'var(--warning)' : 'var(--text-light)'));
-                miniEntry.innerHTML = `<span style="color: var(--primary);">[${time}]</span> <span style="color: ${miniColor};">${msg}</span>`;
-                miniLog.appendChild(miniEntry);
-                miniLog.scrollTop = miniLog.scrollHeight;
-            }
         }
 
         async function checkHealth() {
@@ -4037,7 +4032,17 @@
             // Clear canvas
             ctx.clearRect(0, 0, cw, ch);
             
-            // Draw grid with gradient coloring
+            // Draw background image
+            const previewImg = document.getElementById('carrierPreview');
+            if (previewImg && previewImg.src) {
+                try {
+                    ctx.drawImage(previewImg, 0, 0, cw, ch);
+                } catch (e) {
+                    console.warn('Could not draw background image in heatmap');
+                }
+            }
+            
+            // Draw grid with gradient coloring over the image
             grid.forEach((row, y) => {
                 row.forEach((intensity, x) => {
                     // intensity is 0 to 1, where 0 = original (green), 1 = modified (red)
@@ -4045,12 +4050,12 @@
                     const green = Math.floor((1 - intensity) * 100);
                     const blue = 20;
                     
-                    ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
+                    ctx.fillStyle = `rgba(${red}, ${green}, ${blue}, 0.7)`;
                     ctx.fillRect(x * cellW, y * cellH, cellW - 1, cellH - 1);
                     
                     // Draw grid lines
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-                    ctx.lineWidth = 0.5;
+                    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+                    ctx.lineWidth = 1;
                     ctx.strokeRect(x * cellW, y * cellH, cellW - 1, cellH - 1);
                 });
             });
