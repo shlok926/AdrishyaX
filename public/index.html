@@ -3773,6 +3773,7 @@
                 const message = document.getElementById('secretMessage').value;
                 globalUsedCapacityBytes = new Blob([message]).size;
                 updateCapacityAnalyzer();
+                updateSummaryPanels();
             }
             clearTimeout(heatmapDebounce);
             heatmapDebounce = setTimeout(triggerHeatmapUpdate, 300);
