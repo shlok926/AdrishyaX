@@ -17,7 +17,7 @@ class BaseConfig:
     
     # API Configuration
     API_VERSION = 'v1'
-    RATE_LIMIT_PER_MINUTE = 30
+    RATE_LIMIT_PER_MINUTE = 1000
     MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
     MAX_PASSWORD_LENGTH = 256
     MAX_MESSAGE_LENGTH = 10000

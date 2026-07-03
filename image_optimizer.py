@@ -373,7 +373,7 @@ class ImageOptimizer:
             
             # Calculate metrics
             image_array = np.array(image)
-            entropy = self.calculate_shannon_entropy(image_array)
+            entropy = self.calculate_entropy(image_array)
             complexity = self.calculate_complexity(image_array)
             compression = self.calculate_compression_ratio(image_path)
             capacity = self.calculate_capacity(image)
