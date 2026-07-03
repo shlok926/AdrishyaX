@@ -1719,13 +1719,13 @@
         <div class="sidebar-group">
             <div class="sidebar-label">Insights</div>
             <div class="sidebar-item" onclick="openModal('heatmapModal')">
-                <span>📊</span> Live Visualization
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Live Visualization
             </div>
             <div class="sidebar-item" onclick="openModal('inspectorModal')">
-                <span>🔬</span> Pixel Analysis
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Pixel Analysis
             </div>
             <div class="sidebar-item" onclick="openModal('attackModal')">
-                <span>🛡️</span> Attack Simulation
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Attack Simulation
             </div>
         </div>
 
@@ -1735,7 +1735,7 @@
                 <span>⌚</span> Session History
             </div>
             <div class="sidebar-item" onclick="openAnalytics()">
-                <span>📈</span> Analytics
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> Analytics
             </div>
             <div class="sidebar-item">
                 <span>⌨</span> Terminal Mode
@@ -1772,7 +1772,7 @@
             <!-- Left Column: Carrier -->
             <div class="panel">
                 <div class="panel-header">
-                    <div class="panel-title"><span>🖼️</span> Cover Image</div>
+                    <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg> Cover Image</div>
                 </div>
                 
                 <div class="upload-zone" id="dropZoneCarrier">
@@ -1825,7 +1825,7 @@
 
                 <!-- Image Optimization Panel (NEW) -->
                 <button class="optimize-button" id="btnAnalyzeImage" style="display: none;">
-                    <span>📊</span> Analyze Image Quality
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Analyze Image Quality
                 </button>
 
                 <div class="optimization-panel" id="optimizationPanel">
@@ -1884,7 +1884,7 @@
                 </div>
 
                 <div id="modeMessageInput">
-                    <div class="panel-title" style="margin-top: 10px;"><span>💬</span> Secret Message</div>
+                    <div class="panel-title" style="margin-top: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Secret Message</div>
                     <textarea id="secretMessage" rows="4" placeholder="Enter message to hide..." oninput="handleInputUpdate()"></textarea>
                 </div>
 
@@ -1898,7 +1898,7 @@
                     <div id="payloadFileList" style="margin-top: 8px; font-size: 12px; color: var(--text-dim);"></div>
                 </div>
                 
-                <div class="panel-title" style="margin-top: 10px;"><span>🔒</span> Security</div>
+                <div class="panel-title" style="margin-top: 10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Security</div>
                 <input type="password" id="encryptionKey" placeholder="Encryption Key / Password" oninput="handleInputUpdate()">
                 
                 <button class="button-primary" id="btnEncode" style="margin-top: 10px;">Start Encoding</button>
@@ -1908,23 +1908,23 @@
             <!-- Right Column: Analysis -->
             <div class="panel">
                 <div class="panel-header">
-                    <div class="panel-title"><span>📊</span> Analysis Console</div>
+                    <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Analysis Console</div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 12px;">
                     <button class="button-secondary" onclick="openModal('heatmapModal')">
-                        <span>📊</span> LIVE HEATMAP VISUALIZATION
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> LIVE HEATMAP VISUALIZATION
                     </button>
                     <button class="button-secondary" onclick="openModal('inspectorModal')">
-                        <span>🔬</span> BIT-LEVEL PIXEL INSPECTOR
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> BIT-LEVEL PIXEL INSPECTOR
                     </button>
                     <button class="button-secondary" onclick="openModal('attackModal')">
-                        <span>🛡️</span> THREAT DETECTION ENGINE
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> THREAT DETECTION ENGINE
                     </button>
                 </div>
 
                 <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                    <span>📈</span> REAL-TIME METRICS
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> REAL-TIME METRICS
                 </div>
 
                 <div class="metrics-grid">
@@ -1956,7 +1956,7 @@
                 </div>
 
                 <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                    <span>📋</span> FILE SUMMARY
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> FILE SUMMARY
                 </div>
 
                 <div class="metrics-grid">
@@ -1979,7 +1979,7 @@
                 </div>
                 
                 <div class="panel-title" style="margin-top: 24px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                    <span>📊</span> REAL-TIME ANALYTICS & ACTIONS
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> REAL-TIME ANALYTICS & ACTIONS
                 </div>
                 <div id="analyticsActionCenter" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 8px;">
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex-shrink: 0; margin-left: 10px;">
@@ -2002,7 +2002,7 @@
                 
                 <!-- Security Parameters to fill vertical space -->
                 <div class="panel-title" style="margin-top: 24px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                    <span>🛡️</span> SECURITY PARAMETERS
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> SECURITY PARAMETERS
                 </div>
                 <div style="margin-top: 15px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 8px; font-size: 12px; color: var(--text-dim); display: flex; flex-direction: column; gap: 12px; height: 250px;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;"><span>Cipher Mode</span><span style="color: var(--primary);">AES-256-GCM</span></div>
@@ -2142,7 +2142,7 @@
                 <!-- Right Column: Encryption Status & Info -->
                 <div class="panel">
                     <div class="panel-header">
-                        <div class="panel-title"><span>📊</span> Encryption Status</div>
+                        <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Encryption Status</div>
                     </div>
 
                     <div class="metrics-grid">
@@ -2165,7 +2165,7 @@
                     </div>
 
                     <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                        <span>⚙️</span> Security Features
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Security Features
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -2193,7 +2193,7 @@
                     </div>
 
                     <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                        <span>📋</span> Recent Operations
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> Recent Operations
                     </div>
 
                     <div id="encryptionOperationsList" style="display: flex; flex-direction: column; gap: 8px; max-height: 300px; overflow-y: auto;">
@@ -2352,7 +2352,7 @@
                     </div>
 
                     <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                        <span>🔒</span> Security Properties
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Security Properties
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -2387,7 +2387,7 @@
                     </div>
 
                     <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                        <span>📊</span> Status
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Status
                     </div>
 
                     <div id="pqc-status-info" style="padding: 12px; background: var(--surface-light); border-radius: 8px; font-size: 12px;">
@@ -2470,11 +2470,11 @@
                 <!-- Right Column: Audio Analysis -->
                 <div class="panel">
                     <div class="panel-header">
-                        <div class="panel-title"><span>📊</span> Audio Analysis</div>
+                        <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Audio Analysis</div>
                     </div>
 
                     <button class="button-secondary" id="btnAnalyzeAudio" style="width: 100%; margin-bottom: 12px;">
-                        <span>📈</span> Analyze Audio Quality
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> Analyze Audio Quality
                     </button>
 
                     <div id="audioAnalysisPanel" style="display: none;">
@@ -2509,7 +2509,7 @@
                     </div>
 
                     <div class="panel-title" style="margin-top: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                        <span>📋</span> FILE DETAILS
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> FILE DETAILS
                     </div>
 
                     <div class="metrics-grid">
@@ -2550,7 +2550,7 @@
     <div id="heatmapModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="panel-title"><span>📊</span> Live Visualization - Heatmap</div>
+                <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Live Visualization - Heatmap</div>
                 <button class="close-btn" onclick="closeModal('heatmapModal')">&times;</button>
             </div>
             <div class="modal-body">
@@ -2572,7 +2572,7 @@
     <div id="inspectorModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="panel-title"><span>🔬</span> Pixel Inspector</div>
+                <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Pixel Inspector</div>
                 <button class="close-btn" onclick="closeModal('inspectorModal')">&times;</button>
             </div>
             <div class="modal-body" id="inspectorContent">
@@ -2584,7 +2584,7 @@
     <div id="attackModal" class="modal">
         <div class="modal-content" style="max-width: 800px;">
             <div class="modal-header">
-                <div class="panel-title"><span>🛡️</span> Attack Simulation Engine</div>
+                <div class="panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Attack Simulation Engine</div>
                 <button class="close-btn" onclick="closeModal('attackModal')">&times;</button>
             </div>
             <div class="modal-body" style="max-height: 600px; overflow-y: auto;">
@@ -3336,7 +3336,7 @@
                     }
                     break;
                 case 'lossy':
-                    btnEncode.innerHTML = '<span>⚡</span> Encode with Lossy Compression';
+                    btnEncode.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> Encode with Lossy Compression';
                     btnEncode.style.background = 'linear-gradient(135deg, var(--primary), #ff4444)';
                     break;
                 default:
@@ -3895,7 +3895,7 @@
                 showError('Analysis failed: ' + error.message);
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = '<span>📊</span> Analyze Image Quality';
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Analyze Image Quality';
             }
         }
 
