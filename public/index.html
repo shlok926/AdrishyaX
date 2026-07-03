@@ -1977,6 +1977,28 @@
                         <div class="metric-value" id="summaryRemaining" style="color: var(--success);">0 KB</div>
                     </div>
                 </div>
+                
+                <div class="panel-title" style="margin-top: 24px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                    <span>📊</span> REAL-TIME ANALYTICS & ACTIONS
+                </div>
+                <div id="analyticsActionCenter" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding: 15px; background: rgba(0, 0, 0, 0.2); border-radius: 8px;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex-shrink: 0; margin-left: 10px;">
+                        <div id="capacityDonut" style="width: 70px; height: 70px; border-radius: 50%; background: conic-gradient(var(--success) 0%, var(--surface-light) 0%); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+                            <div style="width: 54px; height: 54px; border-radius: 50%; background: var(--surface); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px;" id="donutText">0%</div>
+                        </div>
+                        <div style="font-size: 10px; color: var(--text-dim); text-transform: uppercase; font-weight: 600; letter-spacing: 1px;">Capacity Used</div>
+                    </div>
+                    
+                    <div id="actionCenterArea" style="display: flex; flex-direction: column; gap: 8px; width: 65%; opacity: 0.3; pointer-events: none; transition: all 0.3s ease;">
+                        <button id="btnDownloadEncoded" class="button-primary" style="padding: 10px; font-size: 12px; background: linear-gradient(135deg, var(--success), #229922); display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(68, 255, 68, 0.15);" onclick="alert('Image not encoded yet.')">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download Safe Image
+                        </button>
+                        <button id="btnGenerateDecoy" class="button-secondary" style="padding: 10px; font-size: 12px; border: 1px solid rgba(255, 170, 68, 0.5); color: var(--warning); display: flex; align-items: center; justify-content: center; gap: 8px;" onclick="generateDecoyKey()">
+                            🛡️ Generate Decoy Key
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -3194,6 +3216,16 @@
                 }
             }
             
+            // Update Donut Chart Real-Time
+            const percentage = capacityKB > 0 ? Math.min(100, Math.round((usedKB / capacityKB) * 100)) : 0;
+            const donutColor = percentage > 80 ? 'var(--error)' : (percentage > 50 ? 'var(--warning)' : 'var(--success)');
+            const donut = document.getElementById('capacityDonut');
+            if (donut) {
+                donut.style.background = `conic-gradient(${donutColor} ${percentage}%, var(--surface-light) ${percentage}%)`;
+                document.getElementById('donutText').textContent = `${percentage}%`;
+                document.getElementById('donutText').style.color = donutColor;
+            }
+            
             // Analyze metrics if image is loaded
             analyzeImageMetrics();
         }
@@ -3465,6 +3497,23 @@
                         link.click();
                         
                         log('Message encoded successfully', 'success');
+                        
+                        // Activate Action Center
+                        const actionCenter = document.getElementById('actionCenterArea');
+                        if (actionCenter) {
+                            actionCenter.style.opacity = '1';
+                            actionCenter.style.pointerEvents = 'auto';
+                            
+                            const downloadBtn = document.getElementById('btnDownloadEncoded');
+                            downloadBtn.onclick = () => {
+                                const l = document.createElement('a');
+                                l.href = url;
+                                l.download = 'safe_' + currentCarrier.name;
+                                l.click();
+                                showToast('Image downloaded from Action Center!', 'success');
+                            };
+                        }
+                        
                         hideLoading();
                         showToast('✅ Encoding completed! File downloaded.', 'success', 4000);
                         
@@ -4401,6 +4450,19 @@
 
         function openAdvancedModal() {
             openModal('advancedModal');
+        }
+
+        function generateDecoyKey() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+            let key = '';
+            for(let i=0; i<16; i++) {
+                key += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(key);
+            }
+            showToast('🛡️ Fake Decoy Key copied to clipboard!', 'info', 3000);
+            log('Generated decoy key for plausible deniability', 'info');
         }
 
         // Session History Management
