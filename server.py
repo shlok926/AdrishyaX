@@ -43,7 +43,7 @@ class Config:
     MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
     MAX_PASSWORD_LENGTH = 256
     MAX_MESSAGE_LENGTH = 10000
-    RATE_LIMIT_PER_MINUTE = 30
+    RATE_LIMIT_PER_MINUTE = 1000
     REQUEST_TIMEOUT = 300  # 5 minutes
 
 # ===== GLOBAL STATE =====
@@ -99,7 +99,7 @@ def rate_limit(f):
         
         if len(request_history[client_ip]) >= Config.RATE_LIMIT_PER_MINUTE:
             logger.warning(f'Rate limit exceeded for {client_ip}')
-            return jsonify({'error': 'Rate limit exceeded. Max 30 requests per minute.'}), 429
+            return jsonify({'error': 'Rate limit exceeded. Too many requests.'}), 429
         
         request_history[client_ip].append(now)
         return f(*args, **kwargs)
